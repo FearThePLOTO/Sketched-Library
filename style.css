@@ -76,6 +76,7 @@ h1 {
   border: 2px solid var(--ink);
   border-radius: var(--sketch);
   box-shadow: 4px 4px 0 var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .book:nth-child(even) { rotate: .8deg; border-radius: var(--sketch-alt); }
