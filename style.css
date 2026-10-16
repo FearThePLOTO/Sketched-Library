@@ -1,0 +1,186 @@
+:root {
+  --ink: #1b1b1b;
+  --paper: #fdfdf7;
+  --sketch: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  --sketch-alt: 15px 225px 15px 255px / 255px 15px 225px 15px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 2rem 1.25rem 4rem;
+  font-family: "Patrick Hand", "Comic Sans MS", "Comic Neue", cursive;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(transparent 0 30px, #e9e7df 30px 31px),
+    var(--paper);
+}
+
+header { margin-bottom: 1.5rem; }
+
+.tag {
+  display: inline-block;
+  margin: 0 0 .4rem;
+  padding: .2rem .55rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--sketch-alt);
+  font-size: .95rem;
+  rotate: -3deg;
+}
+
+h1 {
+  display: inline-block;
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: .02em;
+  rotate: -1.2deg;
+  text-decoration: underline wavy 3px;
+  text-underline-offset: .3em;
+}
+
+.btn {
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--sketch);
+  padding: .35rem .9rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink);
+  transition: translate .08s ease, box-shadow .08s ease, rotate .12s ease;
+}
+
+.btn:hover { rotate: -1.5deg; translate: -1px -1px; }
+.btn:active { translate: 3px 3px; box-shadow: 0 0 0 var(--ink); }
+.btn:focus-visible { outline: 3px dashed var(--ink); outline-offset: 3px; }
+
+#showDialog { rotate: 1deg; }
+
+#output {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+
+.book {
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  padding: 1rem 1.1rem;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: var(--sketch);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.book:nth-child(even) { rotate: .8deg; border-radius: var(--sketch-alt); }
+
+.book-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-decoration: underline dotted 2px;
+  text-underline-offset: .25em;
+}
+
+.book-author, .book-pages { margin: 0; }
+
+.book.is-read { background: #f4f4ef; }
+.book.is-read .book-title { text-decoration: line-through; }
+
+.stamp {
+  align-self: flex-start;
+  margin: .4rem 0 .7rem;
+  padding: .1rem .55rem;
+  border: 2px solid var(--ink);
+  border-radius: var(--sketch-alt);
+  font-size: .95rem;
+  letter-spacing: .08em;
+  rotate: -5deg;
+}
+
+.book.is-read .stamp { box-shadow: 2px 2px 0 var(--ink); }
+
+.book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: auto;
+}
+
+.book-actions .btn { font-size: .95rem; padding: .2rem .6rem; }
+.book-actions [data-action="remove"] { border-style: dashed; }
+
+.empty { grid-column: 1 / -1; font-size: 1.3rem; rotate: -1deg; }
+
+.site-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 2px dashed var(--ink);
+  font-size: 1.05rem;
+  rotate: -.7deg;
+}
+
+.site-footer a {
+  color: inherit;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .2em;
+}
+
+.site-footer a:hover { rotate: -1.5deg; }
+.site-footer a:focus-visible { outline: 3px dashed var(--ink); outline-offset: 3px; }
+
+dialog {
+  width: min(22rem, 92vw);
+  padding: 1.4rem 1.5rem 1.2rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: var(--sketch);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+dialog::backdrop { background: rgb(27 27 27 / .35); }
+
+dialog h2 { margin: 0 0 .8rem; font-size: 1.6rem; font-weight: 400; rotate: -1deg; }
+
+dialog label {
+  display: block;
+  margin-top: .7rem;
+  font-size: 1rem;
+}
+
+dialog input, dialog select {
+  display: block;
+  width: 100%;
+  margin-top: .1rem;
+  font: inherit;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px dashed var(--ink);
+  padding: .25rem .2rem;
+}
+
+dialog input:focus-visible, dialog select:focus-visible {
+  outline: 2px dashed var(--ink);
+  outline-offset: 2px;
+}
+
+dialog .btn-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: .6rem;
+  margin-top: 1.2rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}

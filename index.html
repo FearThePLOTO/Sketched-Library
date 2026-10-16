@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Library</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Sketch Library</h1>
+    </header>
+    <dialog id="addBookDialog">
+        <form method="dialog">
+            <h2>New book</h2>
+            <div>
+                <label for="bookName">The Book Name:</label>
+                <input type="text" id="bookName" name="bookName" placeholder="The evil within" required>
+                
+                <label for="author">The author:</label>
+                <input type="text" id="author" name="author" placeholder="PLOTO" required>
+                
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" name="pages" placeholder="233" required>
+
+                <label for="readOption">Have you read the Book:</label>
+                <select name="readOption" id="readOption">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <div class="btn-row">
+            <button id="cancelBtn" class="btn" type="button">Cancel</button>
+            <button id="confirmBtn" class="btn" type="submit">Add Book</button>
+            </div>
+        </form>
+    </dialog>
+
+    <button id="showDialog" class="btn">Add a book</button>
+
+    <div id="output"></div>
+
+    <footer class="site-footer">
+        <p>Made by <a href="https://github.com/FearThePLOTO" target="_blank" rel="noopener noreferrer">FearThePLOTO</a> &mdash; made for The Odin Project</p>
+    </footer>
+
+</body>
+</html>
